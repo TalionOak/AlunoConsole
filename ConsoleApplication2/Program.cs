@@ -11,6 +11,7 @@ namespace ConsoleApplication1
   {
     static void Main(string[] args)
     {
+      //127.0.0.1 localhost 
       //private const string conn = "Server=fanny.db.elephantsql.com;Port=5432;User Id=poirawsh;Password=mfIOfIxr7rrNxrtBYQSBzZw6gnzsSmK0;Database=poirawsh;";
       //NpgsqlConnection conn = new NpgsqlConnection("Server=127.0.0.1;Port=5432;User Id=postgres;Password=pgadmin;Database=fecip;");
       string conn = "Server=TALIONDESEKTOP;Database=alunosdb;";
@@ -29,40 +30,23 @@ namespace ConsoleApplication1
         Console.Write("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ Cadastro de Alunos ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
         Console.ForegroundColor = ConsoleColor.White;
         Console.WriteLine("");
-
         Console.WriteLine("");
-
         Console.WriteLine("");
-
         Console.WriteLine("╔═════════════════MENU DE OPÇÕES════════════════╗    ");
-
         Console.WriteLine("║ 1 Cadastrar Aluno                             ║    ");
-
         Console.WriteLine("║                                               ║    ");
-
         Console.WriteLine("║ 2 Alterar  Aluno                              ║    ");
-
         Console.WriteLine("║                                               ║    ");
-
         Console.WriteLine("║ 3 Excluir Aluno                               ║    ");
-
         Console.WriteLine("║                                               ║    ");
-
         Console.WriteLine("║ 4 Consultar Registro de Aluno                 ║    ");
-
         Console.WriteLine("║                                               ║    ");
-
-
         Console.WriteLine("╚═══════════════════════════════════════════════╝    ");
-
         Console.WriteLine(" ");
-
 
         Console.Write("Digite o Numero Da Opção : ");
 
         var leitura = Console.ReadLine();
-
-
 
         if (leitura == "1")
         {
@@ -72,10 +56,6 @@ namespace ConsoleApplication1
 
           Console.WriteLine("█▀▀ ▄▀█ █▀▄ ▄▀█ █▀ ▀█▀ █▀█ ▄▀█ █▀█     ▄▀█ █   █ █ █▄ █ █▀█");
           Console.WriteLine("█▄▄ █▀█ █▄▀ █▀█ ▄█  █  █▀▄ █▀█ █▀▄     █▀█ █▄▄ █▄█ █ ▀█ █▄█");
-
-
-
-
 
           Console.ResetColor();
           Console.ForegroundColor = ConsoleColor.Green;
@@ -139,12 +119,7 @@ namespace ConsoleApplication1
           NpgsqlDataReader dados;
           NpgsqlDataAdapter Adpt;
 
-
-
-
-          //127.0.0.1 localhost 
           NpgsqlConnection conn = new NpgsqlConnection("Server=fanny.db.elephantsql.com;Port=5432;User Id=poirawsh;Password=mfIOfIxr7rrNxrtBYQSBzZw6gnzsSmK0;Database=poirawsh;");
-          //  NpgsqlConnection conn = new NpgsqlConnection("Server=127.0.0.1;Port=5432;User Id=postgres;Password=pgadmin;Database=fecip;");
           conn.Open();
 
           string cmdSeleciona = "insert into alunos(cod_alunos,nome_alun,nome_responsavel,responsavel_nascimento,nascimento,cpf_aluno,cpf_responsavel,telefone,endereco,email,codigopostal,bairroesub) values ('" + cod + "','" + nome + "','" + nomedoresponsavel + "','" + responsavelnascimento + "','" + nascimento + "','" + cpfaluno + "','" + cpfresponsavel + "','" + telefone + "','" + endereco + "','" + email + "','" + cep + "','" + bairroesub + "')";
@@ -157,8 +132,6 @@ namespace ConsoleApplication1
           voltar = Console.ReadLine();
         }
 
-
-
         if (leitura == "4")
         {
           Console.Clear();
@@ -170,9 +143,6 @@ namespace ConsoleApplication1
           NpgsqlDataAdapter Adpt;
 
 
-
-
-
           NpgsqlConnection conn = new NpgsqlConnection("Server=fanny.db.elephantsql.com;Port=5432;User Id=poirawsh;Password=mfIOfIxr7rrNxrtBYQSBzZw6gnzsSmK0;Database=poirawsh;");
           conn.Open();
 
@@ -180,11 +150,6 @@ namespace ConsoleApplication1
 
           NpgsqlCommand Lcmd = new NpgsqlCommand(cmdSeleciona, conn);
           NpgsqlDataReader lect = Lcmd.ExecuteReader();
-
-
-
-
-
 
           //OBJ DATAREADER "DADOS" -> RECEBE O RESULTADO DA CONSULTA 
 
@@ -252,11 +217,6 @@ namespace ConsoleApplication1
           Console.ForegroundColor = ConsoleColor.White;
           cod = Console.ReadLine();
 
-
-
-
-
-
           NpgsqlConnection conn = new NpgsqlConnection("Server=fanny.db.elephantsql.com;Port=5432;User Id=poirawsh;Password=mfIOfIxr7rrNxrtBYQSBzZw6gnzsSmK0;Database=poirawsh;");
           conn.Open();
 
@@ -264,8 +224,6 @@ namespace ConsoleApplication1
 
           NpgsqlCommand Lcmd = new NpgsqlCommand(cmdSeleciona, conn);
           NpgsqlDataReader lect = Lcmd.ExecuteReader();
-          //  
-
 
           if (lect.Read())
           {
@@ -336,14 +294,8 @@ namespace ConsoleApplication1
             voltar = Console.ReadLine();
 
           }
-
-
-
-
-
-
-
         }
+
         if (leitura == "3")
         {
           Console.Clear(); //=======COR===============================================================
@@ -361,11 +313,6 @@ namespace ConsoleApplication1
           Console.ForegroundColor = ConsoleColor.White;
           cod = Console.ReadLine();
 
-
-
-
-
-
           NpgsqlConnection conn = new NpgsqlConnection("Server=fanny.db.elephantsql.com;Port=5432;User Id=poirawsh;Password=mfIOfIxr7rrNxrtBYQSBzZw6gnzsSmK0;Database=poirawsh;");
           conn.Open();
 
@@ -373,8 +320,6 @@ namespace ConsoleApplication1
 
           NpgsqlCommand Lcmd = new NpgsqlCommand(cmdSeleciona, conn);
           NpgsqlDataReader lect = Lcmd.ExecuteReader();
-
-
 
           if (lect.Read())
           {
@@ -415,21 +360,7 @@ namespace ConsoleApplication1
             voltar = Console.ReadLine();
 
           }
-
-
-
-
-
-
-
-
-
         }
-
-
-
-
-
       }
     }
   }
