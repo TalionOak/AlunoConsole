@@ -113,13 +113,7 @@ namespace ConsoleApplication1
           email = Console.ReadLine();
           Console.ForegroundColor = ConsoleColor.Green;
           Console.WriteLine("╚════════════════════════╝");
-          NpgsqlConnection pgsqlConnection = null;
-          string connString = null;
-          NpgsqlCommand contato;
-          NpgsqlDataReader dados;
-          NpgsqlDataAdapter Adpt;
 
-          NpgsqlConnection conn = new NpgsqlConnection("Server=fanny.db.elephantsql.com;Port=5432;User Id=poirawsh;Password=mfIOfIxr7rrNxrtBYQSBzZw6gnzsSmK0;Database=poirawsh;");
           conn.Open();
 
           string cmdSeleciona = "insert into alunos(cod_alunos,nome_alun,nome_responsavel,responsavel_nascimento,nascimento,cpf_aluno,cpf_responsavel,telefone,endereco,email,codigopostal,bairroesub) values ('" + cod + "','" + nome + "','" + nomedoresponsavel + "','" + responsavelnascimento + "','" + nascimento + "','" + cpfaluno + "','" + cpfresponsavel + "','" + telefone + "','" + endereco + "','" + email + "','" + cep + "','" + bairroesub + "')";
@@ -135,15 +129,7 @@ namespace ConsoleApplication1
         if (leitura == "4")
         {
           Console.Clear();
-          //nome do banco de dados
-          NpgsqlConnection pgsqlConnection = null;
-          string connString = null;
-          NpgsqlCommand contato;
-          NpgsqlDataReader dados;
-          NpgsqlDataAdapter Adpt;
 
-
-          NpgsqlConnection conn = new NpgsqlConnection("Server=fanny.db.elephantsql.com;Port=5432;User Id=poirawsh;Password=mfIOfIxr7rrNxrtBYQSBzZw6gnzsSmK0;Database=poirawsh;");
           conn.Open();
 
           string cmdSeleciona = "Select * from alunos";
@@ -217,7 +203,6 @@ namespace ConsoleApplication1
           Console.ForegroundColor = ConsoleColor.White;
           cod = Console.ReadLine();
 
-          NpgsqlConnection conn = new NpgsqlConnection("Server=fanny.db.elephantsql.com;Port=5432;User Id=poirawsh;Password=mfIOfIxr7rrNxrtBYQSBzZw6gnzsSmK0;Database=poirawsh;");
           conn.Open();
 
           string cmdSeleciona = "Select * from alunos where cod_alunos='" + cod + "'";
@@ -275,7 +260,6 @@ namespace ConsoleApplication1
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("╚════════════════════════╝");
 
-            NpgsqlConnection conn1 = new NpgsqlConnection("Server=fanny.db.elephantsql.com;Port=5432;User Id=poirawsh;Password=mfIOfIxr7rrNxrtBYQSBzZw6gnzsSmK0;Database=poirawsh;");
             conn1.Open();
 
             string cmdupdate = "update alunos set nome_alun='" + nome + "', nome_responsavel= '" + nomedoresponsavel + "',NASCIMENTO= '" + nascimentoU + "', responsavel_nascimento= '" + responsavelnascimento + "', cpf_aluno= '" + cpfaluno + "', cpf_responsavel= '" + cpfresponsavel + "', telefone= '" + telefone + "', codigopostal= '" + cep + "', bairroesub= '" + bairroesub + "', endereco= '" + endereco + "', email= '" + email + "'  where cod_alunos='" + lect["cod_alunos"] + "'";
@@ -313,7 +297,6 @@ namespace ConsoleApplication1
           Console.ForegroundColor = ConsoleColor.White;
           cod = Console.ReadLine();
 
-          NpgsqlConnection conn = new NpgsqlConnection("Server=fanny.db.elephantsql.com;Port=5432;User Id=poirawsh;Password=mfIOfIxr7rrNxrtBYQSBzZw6gnzsSmK0;Database=poirawsh;");
           conn.Open();
 
           string cmdSeleciona = "Select * from alunos where cod_alunos='" + cod + "'";
@@ -334,7 +317,6 @@ namespace ConsoleApplication1
             if (desejaexcluir == "s")
             {
 
-              NpgsqlConnection conn1 = new NpgsqlConnection("Server=fanny.db.elephantsql.com;Port=5432;User Id=poirawsh;Password=mfIOfIxr7rrNxrtBYQSBzZw6gnzsSmK0;Database=poirawsh;");
               conn1.Open();
 
               string cmdupdate = "delete from  alunos where cod_alunos='" + lect["cod_alunos"] + "'";
