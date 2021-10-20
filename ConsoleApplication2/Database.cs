@@ -35,22 +35,10 @@ namespace ConsoleApplication1
     public Aluno ExecuteSqlRead(string sqlQuery)
     {
       NpgsqlDataReader reader = ExecuteSql(sqlQuery);
-      Aluno aluno = new Aluno();
+      Aluno aluno = null;
 
       while (reader.Read())
-      {
-        aluno.CodAluno = Convert.ToInt32(reader["cod_alunos"]);
-        aluno.Nome = reader["nome_alun"].ToString();
-        aluno.Nascimento = reader["nascimento"].ToString();
-        aluno.CPF = reader["cpf_aluno"].ToString();
-        aluno.Telefone = reader["telefone"].ToString();
-        aluno.Endereco = reader["endereco"].ToString();
-        aluno.Email = reader["email"].ToString();
-        aluno.CodigoPostal = reader["codigopostal"].ToString();
-        aluno.Bairro = reader["bairroesub"].ToString();
-        aluno.ResponsavelNascimento = reader["responsavel_nascimento"].ToString();
-        aluno.ResponsavelCPF = reader["cpf_responsavel"].ToString();
-      }
+        aluno = LerBanco(reader);
 
       this._connection.Close();
       return aluno;
@@ -63,18 +51,7 @@ namespace ConsoleApplication1
 
       while (reader.Read())
       {
-        Aluno aluno = new Aluno();
-        aluno.CodAluno = Convert.ToInt32(reader["cod_alunos"]);
-        aluno.Nome = reader["nome_alun"].ToString();
-        aluno.Nascimento = reader["nascimento"].ToString();
-        aluno.CPF = reader["cpf_aluno"].ToString();
-        aluno.Telefone = reader["telefone"].ToString();
-        aluno.Endereco = reader["endereco"].ToString();
-        aluno.Email = reader["email"].ToString();
-        aluno.CodigoPostal = reader["codigopostal"].ToString();
-        aluno.Bairro = reader["bairroesub"].ToString();
-        aluno.ResponsavelNascimento = reader["responsavel_nascimento"].ToString();
-        aluno.ResponsavelCPF = reader["cpf_responsavel"].ToString();
+        Aluno aluno = LerBanco(reader);
         yield return aluno;
       }
 
@@ -91,6 +68,23 @@ namespace ConsoleApplication1
       }
       this._connection.Close();
       return false;
+    }
+
+    private Aluno LerBanco(NpgsqlDataReader reader)
+    {
+      Aluno aluno = new Aluno();
+      aluno.CodAluno = Convert.ToInt32(reader["cod_alunos"]);
+      aluno.Nome = reader["nome_alun"].ToString();
+      aluno.Nascimento = reader["nascimento"].ToString();
+      aluno.CPF = reader["cpf_aluno"].ToString();
+      aluno.Telefone = reader["telefone"].ToString();
+      aluno.Endereco = reader["endereco"].ToString();
+      aluno.Email = reader["email"].ToString();
+      aluno.CodigoPostal = reader["codigopostal"].ToString();
+      aluno.Bairro = reader["bairroesub"].ToString();
+      aluno.ResponsavelNascimento = reader["responsavel_nascimento"].ToString();
+      aluno.ResponsavelCPF = reader["cpf_responsavel"].ToString();
+      return aluno;
     }
   }
 }
