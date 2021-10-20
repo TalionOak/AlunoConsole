@@ -158,26 +158,7 @@ namespace ConsoleApplication1
             Console.WriteLine("");
 
             foreach (var item in data.GetAllAlunos())
-            {
-              Console.ForegroundColor = ConsoleColor.Blue;
-              Console.WriteLine("════════════════════════════════════════════════════════════════════════════════════════════");
-              Console.WriteLine(String.Format("{0, -20}{1, -30}{2, -20}{3, -20}", "CÓDIGO", "NOME", "NASCIMENTO", "CPF DO ALUNO"));
-              Console.ForegroundColor = ConsoleColor.Red;
-              Console.WriteLine(String.Format("{0, -20}{1, -30}{2, -20}{3, -20}", item.CodAluno, item.Nome, item.Nascimento, item.CPF));
-
-
-              Console.ForegroundColor = ConsoleColor.Blue;
-              Console.WriteLine(String.Format("{0, -30}{1, -30}{2, -30}{3, -22}", "EMAIL", "NASCIMENTO DO RESPONSAVEL", "CPF DO RESPONSAVEL", "TELEFONE"));
-              Console.ForegroundColor = ConsoleColor.Red;
-              Console.WriteLine(String.Format("{0, -30}{1, -30}{2, -30}{3, -22}", item.Email, item.ResponsavelNascimento, item.ResponsavelCPF, item.Telefone));
-
-
-              Console.ForegroundColor = ConsoleColor.Blue;
-              Console.WriteLine(String.Format("{0, -20}{1, -30}{2, -20}", "CÓDIGO POSTAL", "BAIRRO", "ENDEREÇO"));
-              Console.ForegroundColor = ConsoleColor.Red;
-              Console.WriteLine(String.Format("{0, -20}{1, -30}{2, -20}", item.CodigoPostal, item.Bairro, item.Endereco));
-
-            }
+              item.ExibirNoConsole();
 
             Console.Write("Deseja voltar para o menu:(S/N) ");
             voltar = Console.ReadLine();
