@@ -5,24 +5,38 @@ namespace ConsoleApplication1
 {
   class Program
   {
+    static string cod;
+    static string nome;
+    static string cpfaluno;
+    static string cpfresponsavel;
+    static string responsavelnascimento;
+    static string nascimento;
+    static string telefone;
+    static string endereco;
+    static string email;
+    static string cep;
+    static string bairroesub;
+    static string voltar = "s";
+    static Tela tela = new Tela();
+    static bool temAluno = false;
+
+    static void CadastrarAluno()
+    {
+      nome = tela.ReceberrValorPedido("Nome do Aluno");
+      nascimento = tela.ReceberrValorPedido("Data de Nascimento do Aluno");
+      responsavelnascimento = tela.ReceberrValorPedido("Data de Nascimento do Responsavel");
+      cpfaluno = tela.ReceberrValorPedido("CPF Do Aluno");
+      cpfresponsavel = tela.ReceberrValorPedido("CPF Do Responsavel");
+      telefone = tela.ReceberrValorPedido("Telefone Do Responsavel");
+      cep = tela.ReceberrValorPedido("Correio Postal (CEP)");
+      bairroesub = tela.ReceberrValorPedido("Bairro e SubBairro");
+      endereco = tela.ReceberrValorPedido("Endereço");
+      email = tela.ReceberrValorPedido("Email Do Responsavel");
+    }
+
     static void Main(string[] args)
     {
-      string cod;
-      string nome;
-      string cpfaluno;
-      string cpfresponsavel;
-      string responsavelnascimento;
-      string nascimento;
-      string telefone;
-      string endereco;
-      string email;
-      string cep;
-      string bairroesub;
-      string voltar = "s";
-      bool temAluno = false;
-
       Database data;
-      Tela tela = new Tela();
 
       while (voltar == "s")
       {
@@ -51,16 +65,7 @@ namespace ConsoleApplication1
 
             tela.ExibirCabecalho();
             cod = tela.ReceberrValorPedido("Numero de matricula");
-            nome = tela.ReceberrValorPedido("Nome do Aluno");
-            nascimento = tela.ReceberrValorPedido("Data de Nascimento do Aluno");
-            responsavelnascimento = tela.ReceberrValorPedido("Data de Nascimento do Responsavel");
-            cpfaluno = tela.ReceberrValorPedido("CPF Do Aluno");
-            cpfresponsavel = tela.ReceberrValorPedido("CPF Do Responsavel");
-            telefone = tela.ReceberrValorPedido("Telefone Do Responsavel");
-            cep = tela.ReceberrValorPedido("Correio Postal (CEP)");
-            bairroesub = tela.ReceberrValorPedido("Bairro e SubBairro");
-            endereco = tela.ReceberrValorPedido("Endereço");
-            email = tela.ReceberrValorPedido("Email Do Responsavel");
+            CadastrarAluno();
             tela.FecharCabecalho();
 
             data = new Database();
@@ -91,17 +96,7 @@ namespace ConsoleApplication1
 
             if (temAluno)
             {
-              tela.ExibirCabecalho();
-              nome = tela.ReceberrValorPedido("Nome do Aluno");
-              nascimento = tela.ReceberrValorPedido("Data de Nascimento do Aluno");
-              responsavelnascimento = tela.ReceberrValorPedido("Data de Nascimento do Responsavel");
-              cpfaluno = tela.ReceberrValorPedido("CPF Do Aluno");
-              cpfresponsavel = tela.ReceberrValorPedido("CPF Do Responsavel");
-              telefone = tela.ReceberrValorPedido("Telefone Do Responsavel");
-              cep = tela.ReceberrValorPedido("Correio Postal (CEP)");
-              bairroesub = tela.ReceberrValorPedido("Bairro e SubBairro");
-              endereco = tela.ReceberrValorPedido("Endereço");
-              email = tela.ReceberrValorPedido("Email Do Responsavel");
+              CadastrarAluno();
               tela.FecharCabecalho();
 
               data = new Database();
